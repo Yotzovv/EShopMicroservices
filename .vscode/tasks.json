@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Catalog API",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["run"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices/Services/Catalog/Catalog.API"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Watch Catalog API",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["watch", "run"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices/Services/Catalog/Catalog.API"
+            },
+            "problemMatcher": "$msCompile",
+            "isBackground": true
+        },
+        {
+            "label": "Build Catalog API",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["build"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices/Services/Catalog/Catalog.API"
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Catalog API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build Catalog API",
+            "program": "${workspaceFolder}/eshop-microservices/Services/Catalog/Catalog.API/bin/Debug/net8.0/Catalog.API.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/eshop-microservices/Services/Catalog/Catalog.API",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Attach to Process",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
