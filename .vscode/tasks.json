@@ -2,6 +2,136 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Docker Compose Up",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": ["-p", "eshop-microservices", "up", "--build", "--force-recreate"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices"
+            },
+            "problemMatcher": [],
+            "isBackground": true
+        },
+        {
+            "label": "Docker Compose Up (Clean)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "docker-compose -p eshop-microservices down --remove-orphans; docker-compose -p eshop-microservices up --build --force-recreate"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices"
+            },
+            "problemMatcher": [],
+            "isBackground": true
+        },
+        {
+            "label": "Docker Compose Down",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": ["-p", "eshop-microservices", "down", "--remove-orphans"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Compose Restart",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "docker-compose -p eshop-microservices down --remove-orphans; Start-Sleep -Seconds 2; docker-compose -p eshop-microservices up --build --force-recreate -d"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Compose Stop (Keep Containers)",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": ["-p", "eshop-microservices", "stop"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Compose Start (Resume)",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": ["-p", "eshop-microservices", "start"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Compose Build",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": ["-p", "eshop-microservices", "build"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/eshop-microservices"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Run Catalog API",
             "type": "shell",
             "command": "dotnet",
