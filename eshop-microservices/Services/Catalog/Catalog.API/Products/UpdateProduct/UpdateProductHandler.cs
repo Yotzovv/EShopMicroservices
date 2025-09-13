@@ -30,7 +30,7 @@ public class UpdateProductHandler(IDocumentSession session, ILogger<UpdateProduc
 
         if (product is null)
         {
-            throw new ProductNotFoundException();
+            throw new ProductNotFoundException(command.Id);
         }
 
         product.Name = command.Name;
