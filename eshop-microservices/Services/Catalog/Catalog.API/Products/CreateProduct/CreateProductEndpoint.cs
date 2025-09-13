@@ -9,7 +9,7 @@
         {
             app.MapPost("/products", async (CreateProductRequest request, ISender sender) =>
             {
-                var command = request.Adapt<CreateProductComamand>();
+                var command = request.Adapt<CreateProductCommand>();
 
                 var result = await sender.Send(command);
 
