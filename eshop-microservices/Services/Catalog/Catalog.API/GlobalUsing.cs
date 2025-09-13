@@ -8,3 +8,4 @@ global using Catalog.API.Exceptions;
 global using FluentValidation;
 global using Microsoft.AspNetCore.Diagnostics;
 global using Microsoft.AspNetCore.Mvc;
+global using Catalog.API.Products.Exceptions;
