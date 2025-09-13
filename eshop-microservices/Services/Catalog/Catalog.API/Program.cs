@@ -1,16 +1,20 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Catalog.API.BuildingBlocks.ValidationBehavior;
 
-builder.Services.AddCarter();
+var builder = WebApplication.CreateBuilder(args);
+
+var assembly = typeof(Program).Assembly;
 builder.Services.AddMediatR(config =>
 {
-    config.RegisterServicesFromAssembly(typeof(Program).Assembly);
+    config.RegisterServicesFromAssembly(assembly);
+    config.AddOpenBehavior(typeof(ValidationBehavior<,>));
 });
 builder.Services.AddMarten(opts =>
 {
     opts.Connection(builder.Configuration.GetConnectionString("DefaultConnection")!);
 }).UseLightweightSessions();
 
-builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+builder.Services.AddValidatorsFromAssembly(assembly);
+builder.Services.AddCarter();
 
 var app = builder.Build();
 

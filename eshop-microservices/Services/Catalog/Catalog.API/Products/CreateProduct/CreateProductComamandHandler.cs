@@ -13,24 +13,15 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
         RuleFor(x => x.ImageFile).NotEmpty().WithMessage("ImageFile is required");
         RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price must be greater than 0.");
     }
-
 }
 
-internal class CreateProductCommandHandler(
-    IDocumentSession session,
-    IValidator<CreateProductCommand> validator)
+internal class CreateProductCommandHandler(IDocumentSession session, ILogger<CreateProductCommandHandler> logger)
     : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        var result = await validator.ValidateAsync(command, cancellationToken);
-        var errors = result.Errors.Select(x => x.ErrorMessage).ToList();
-
-        if (errors.Count != 0)
-        {
-            throw new ValidationException(errors.FirstOrDefault());
-        }
-
+        logger.LogInformation("Creating a new product with name: {Name}", command.Name);
+        
         var product = new Product()
         {
             Name = command.Name,
