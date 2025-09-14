@@ -11,3 +11,4 @@ global using Catalog.API.BuildingBlocks.Exceptions.Handler;
 global using Catalog.API.BuildingBlocks.ValidationBehavior;
 global using BuildingBlocks.Behaviors;
 global using Catalog.API.Data;
+global using Marten.Pagination;
