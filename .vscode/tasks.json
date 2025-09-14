@@ -5,7 +5,7 @@
             "label": "Docker Compose Up",
             "type": "shell",
             "command": "docker-compose",
-            "args": ["-p", "eshop-microservices", "up", "--build", "--force-recreate"],
+            "args": ["-f", "docker-compose.yml", "-f", "docker-compose.override.yml", "up", "-d"],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -20,7 +20,7 @@
                 "cwd": "${workspaceFolder}/eshop-microservices"
             },
             "problemMatcher": [],
-            "isBackground": true
+            "isBackground": false
         },
         {
             "label": "Docker Compose Up (Clean)",
