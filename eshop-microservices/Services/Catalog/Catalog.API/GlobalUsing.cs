@@ -12,3 +12,4 @@ global using Catalog.API.BuildingBlocks.ValidationBehavior;
 global using BuildingBlocks.Behaviors;
 global using Catalog.API.Data;
 global using Marten.Pagination;
+// global using AspNetCore.HealthChecks.NpgSql;
