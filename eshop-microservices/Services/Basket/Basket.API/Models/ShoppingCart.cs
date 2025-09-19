@@ -1,4 +1,4 @@
-namespace ConsoleApp1;
+namespace Basket.API.Models;
 
 public class ShoppingCart
 {
@@ -6,7 +6,7 @@ public class ShoppingCart
 
     public List<ShoppingCartItem> Items {get; set;} = new();
 
-    public decimal TotalPrice => items.Sum(item => item.Price * item.Quantity);
+    public decimal TotalPrice => Items.Sum(item => item.Price * item.Quantity);
 
     public ShoppingCart(string userName) 
     {
