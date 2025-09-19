@@ -15,7 +15,7 @@ public class DeleteBasketCommandValidator : AbstractValidator<DeleteBasketComman
 public class DeleteBasketCommandHandler
     : IRequestHandler<DeleteBasketCommand, DeleteBasketResult>
 {
-    public Task<DeleteBasketResult> Handle(DeleteBasketCommand command , CancellationToken cancellationToken)
+    public async Task<DeleteBasketResult> Handle(DeleteBasketCommand command , CancellationToken cancellationToken)
     {
         // TODO: delete basket logic
 
