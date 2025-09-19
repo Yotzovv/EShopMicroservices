@@ -13,7 +13,7 @@ public class GetBasketEndpoints : ICarterModule
 
             return Results.Ok(response);
         })
-        .WithName("GetB")
+        .WithName("GetBasket")
         .Produces<GetBasketResponse>(StatusCodes.Status200OK)
         .ProducesProblem(StatusCodes.Status400BadRequest)
         .WithSummary("Get a user's shopping cart")
