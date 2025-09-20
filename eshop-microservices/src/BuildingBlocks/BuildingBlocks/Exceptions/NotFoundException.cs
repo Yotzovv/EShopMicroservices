@@ -1,4 +1,4 @@
-namespace Catalog.API.Products.Exceptions;
+namespace BuildingBlocks.Exceptions;
 
 public class NotFoundException : Exception
 {
