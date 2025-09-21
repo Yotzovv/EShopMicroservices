@@ -14,12 +14,12 @@ public class DeleteBasketEndpoint : ICarterModule
             var response = result.Adapt<DeleteBasketResponse>();
 
             return Results.Ok(response);
-                })
-                .WithName("DeleteBasket")
-                .Produces<DeleteBasketResponse>(StatusCodes.Status200OK)
-                .ProducesProblem(StatusCodes.Status400BadRequest)
-                .WithSummary("Delete a user's shopping cart")
-                .WithDescription("Deletes the shopping cart for a specific user.");
+        })
+        .WithName("DeleteBasket")
+        .Produces<DeleteBasketResponse>(StatusCodes.Status200OK)
+        .ProducesProblem(StatusCodes.Status400BadRequest)
+        .WithSummary("Delete a user's shopping cart")
+        .WithDescription("Deletes the shopping cart for a specific user.");
 
     }
 }

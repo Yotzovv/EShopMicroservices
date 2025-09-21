@@ -13,7 +13,7 @@
         public async Task<ShoppingCart> StoreBasket(ShoppingCart basket, CancellationToken cancellationToken = default)
         {
             session.Store(basket);
-            session.SaveChangesAsync(cancellationToken);
+            await session.SaveChangesAsync(cancellationToken);
 
             return basket;
         }
