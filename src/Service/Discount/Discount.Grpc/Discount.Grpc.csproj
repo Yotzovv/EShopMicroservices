@@ -5,7 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..\..\eshop-microservices</DockerfileContext>
+    <DockerfileContext>.</DockerfileContext>
+    <UserSecretsId>daa64a9a-dfa8-47d3-982c-664988e3a489</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
