@@ -69,7 +69,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
-      - ConnectionStrings__Database=Server=discountdb;Port=5432;Database=DiscountDb;User Id=postgres;Password=postgres;Include Error Detail=true
+      - ConnectionStrings__Database=Data Source=discountdb
     depends_on:
       - distributedCache
     ports:
