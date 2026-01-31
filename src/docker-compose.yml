@@ -11,21 +11,18 @@ services:
     image: redis
 
   catalog.api:
-    image: ${DOCKER_REGISTRY-}catalogapi
     build:
-      context: .
-      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+      context: ..
+      dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
 
   basket.api:
-    image: ${DOCKER_REGISTRY-}basketapi
     build:
-      context: .
-      dockerfile: Services/Basket/Basket.API/Dockerfile
+      context: ..
+      dockerfile: src/Services/Basket/Basket.API/Dockerfile
 
   discount.grpc:
-    image: ${DOCKER_REGISTRY-}discountgrpc
     build:
-      context: ../src/Services/Discount/Discount.Grpc
+      context: ./Services/Discount/Discount.Grpc
       dockerfile: Dockerfile
 
 volumes:

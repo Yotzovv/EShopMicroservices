@@ -1,4 +1,5 @@
 using BuildingBlocks.Exceptions.Handler;
+using Discount.Grpc.Protos;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var assembly = typeof(Program).Assembly;
 builder.Services.AddCarter();
-builder.Services.AddMediatR(cfg => 
+builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(assembly);
     cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
@@ -28,6 +29,20 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
     options.InstanceName = "basket:";
+});
+
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
+{
+    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]);
+})
+.ConfigurePrimaryHttpMessageHandler(() =>
+{
+    var handler = new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+    };
+
+    return handler;
 });
 
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
