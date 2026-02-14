@@ -7,5 +7,18 @@ namespace Ordering.Domain.Models
     {
         public string Name { get; private set; } = default!;
         public decimal Price { get; private set; }
+
+        public static Product Create(ProductId id, string name, decimal price)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(name, nameof(name));
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(price);
+            
+            return new Product
+            {
+                Id = id,
+                Name = name,
+                Price = price
+            };
+        }
     }
 }
