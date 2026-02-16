@@ -30,9 +30,10 @@ namespace Ordering.Infrastructure.Data.Interceptors
                     entry.Entity.CreatedAt = DateTime.UtcNow;
                 }
 
-                if(entry.State == EntityState.Added || entry.State == EntityState.Modified || entry.State.HasChangedOwnedEntities())
+                if(entry.State == EntityState.Added || entry.State == EntityState.Modified || entry.HasChangedOwnedEntities())
                 {
-
+                    entry.Entity.CreatedBy = "ivo";
+                    entry.Entity.CreatedAt = DateTime.UtcNow;
                 }
             }
         }
