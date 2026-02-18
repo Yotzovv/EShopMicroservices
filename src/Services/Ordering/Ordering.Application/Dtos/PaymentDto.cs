@@ -3,7 +3,7 @@
     public record PaymentDto(
         string CardName,
         string CardNumber,
-        DateTime ExpirationDate,
+        string Expiration,
         string Cvv,
         int PaymentMethod
     );
