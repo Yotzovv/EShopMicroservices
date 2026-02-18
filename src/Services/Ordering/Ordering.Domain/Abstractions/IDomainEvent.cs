@@ -8,6 +8,6 @@ namespace Ordering.Domain.Abstractions
 
         public DateTime OccurredOn => DateTime.UtcNow;
 
-        public string EventType => GetType().AssemblyQualifiedName;
+        public string EventType => GetType().AssemblyQualifiedName!;
     }
 }

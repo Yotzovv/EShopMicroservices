@@ -4,13 +4,13 @@
     {
         private const int DefaultMaxLength = 5;
         public string Value { get; }
-        private OrderName(string value) => Value = value; 
+        private OrderName(string value) => Value = value;
 
-        public static OrderName Of(string value, int maxLength)
+        public static OrderName Of(string value)
         {
-            ArgumentException.ThrowIfNullOrWhiteSpace(value, nameof(value));
-            ArgumentOutOfRangeException.ThrowIfNotEqual(value.Length, DefaultMaxLength);
-        
+            ArgumentException.ThrowIfNullOrWhiteSpace(value);
+            //ArgumentOutOfRangeException.ThrowIfNotEqual(value.Length, DefaultLength);
+
             return new OrderName(value);
         }
     }
