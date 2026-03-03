@@ -12,8 +12,8 @@ namespace Ordering.API.Endpoints
             app.MapGet("/orders/{userName}", async (string userName, ISender sender) =>
             {
                 var query = new GetOrdersByNameQuery(userName);
-                var orders = await sender.Send(query);
-                var response = new GetOrdersByNameResponse(orders.Adapt<IEnumerable<OrderDto>>());
+                var result = await sender.Send(query);
+                var response = new GetOrdersByNameResponse(result.Orders);
                 return Results.Ok(response);
             })
             .WithName("GetOrdersByName")
