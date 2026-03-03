@@ -3,7 +3,7 @@ using Ordering.Application.Orders.Commands.DeleteOrder;
 
 namespace Ordering.API.Endpoints
 {
-    public record DeleteOrderResponse(bool isSuccess);
+    public record DeleteOrderResponse(bool IsSuccess);
 
     public class DeleteOrder : ICarterModule
     {
@@ -12,9 +12,9 @@ namespace Ordering.API.Endpoints
             app.MapDelete("/orders/{id:guid}", async (Guid id, ISender sender) =>
             {
                 var command = new DeleteOrderCommand(id);
-                var response = await sender.Send(command);
-                var result = response.Adapt<DeleteOrderResponse>();
-                return Results.Ok(result);
+                var result = await sender.Send(command);
+                var response = new DeleteOrderResponse(result.Success);
+                return Results.Ok(response);
             })
             .WithName("DeleteOrder")
             .Produces<DeleteOrderResponse>(StatusCodes.Status200OK)
